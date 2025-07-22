@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frame Bazar</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .buy-button {
+      padding: 10px 20px;
+      background: #ff5722;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+    }
+
+    .buy-button:hover {
+      background-color: #e64a19;
+    }
+
+    .offer-banner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      background-color: #fff8e1;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #444;
+      text-align: center;
+    }
+
+    .frames {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .frame {
+      background-color: #ffffff;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .frame img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .frame img {
+        height: 140px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Logo & Name -->
+  <header>
+    <img src="image/logo.png" alt="Logo" style="height: 80px; vertical-align: middle;">
+    <span style="font-size: 28px; font-weight: bold; vertical-align: middle;">Frame Bazar</span>
+  </header>
+
+  <!-- Offer Banner -->
+  <div class="offer-banner">
+    <span>🚚 Free Delivery on First Order</span>
+    <span>💰 Half Payment Online</span>
+    <span>💵 Half Cash on Delivery</span>
+  </div>
+
+  <!-- Discount Slider -->
+  <section class="discount-carousel">
+    <img src="image/discount1.jpg.webp" class="discount-slide" />
+    <img src="image/discount2.jpg.webp" class="discount-slide" />
+    <img src="image/discount3.jpn.webp" class="discount-slide" />
+  </section>
+
+  <!-- Frames Section -->
+ 
+
+  <div class="frame-cards">
+
+  <!-- 3ft Frame -->
+  <div class="frame-card">
+    <img src="image/frame3ft.jpg.jpg" alt="3ft Frame">
+    <h3>Digi Painting - 3ft</h3>
+    <p>⭐ 4.3 | 180+ reviews</p>
+    <p><strong>Price:</strong> ₹999</p>
+    <a href="product.html?image=frame3ft.jpg&size=3ft&price=999&rating=4.3">"
+      <button class="buy-now">Buy Now</button>
+    </a>
+  </div>
+
+  <!-- 4ft Frame -->
+  <div class="frame-card">
+    <img src="image/frame4ft.jpg.jpg" alt="4ft Frame">
+    <h3>Digi Painting - 4ft</h3>
+    <p>⭐ 4.6 | 220+ reviews</p>
+    <p><strong>Price:</strong> ₹1200</p>
+    <a href="product.html?image=frame4ft.jpg&size=4ft&price=1200&rating=4.6">
+      <button class="buy-now">Buy Now</button>
+    </a>
+  </div>
+
+  <!-- 5ft Frame -->
+  <div class="frame-card">
+    <img src="image/frame5ft.jpg.jpg" alt="5ft Frame">
+    <h3>Digi Painting - 5ft</h3>
+    <p>⭐ 4.8 | 270+ reviews</p>
+    <p><strong>Price:</strong> ₹1400</p>
+    <a    href="product.html?image=frame5ft.jpg&size=5ft&price=1400&rating=4.8">
+      <button class="buy-now">Buy Now</button>
+    </a>
+  </div>
+
+  <!-- 6ft Frame -->
+  <div class="frame-card">
+    <img src="image/frame6ft.jpg.jpg" alt="6ft Frame">
+    <h3>Digi Painting - 6ft</h3>
+    <p>⭐ 4.9 | 300+ reviews</p>
+    <p><strong>Price:</strong> ₹1700</p>
+    <a href="product.html?image=frame6ft.jpg&size=6ft&price=1700&rating=4.9">
+      <button class="buy-now">Buy Now</button>
+    </a>
+  </div>
+
+</div>
+
+  </section>
+
+  <!-- Experience & Happy Customers -->
+  <section class="experience">
+    <h2>12+ Years of Experience in Custom Frames</h2>
+    <p>Serving thousands of happy customers with our premium digital painting photo frames. Each frame is custom-crafted to bring your memories to life!</p>
+  </section>
+
+  <section class="happy-customers">
+    <h2>Happy Customers</h2>
+    <div class="customer-reviews">
+      <div class="review">
+        <p><strong>Rahul Verma:</strong> "Bohot hi zabardast frame mila. Quality mast hai! ⭐⭐⭐⭐⭐"</p>
+      </div>
+      <div class="review">
+        <p><strong>Neha Sharma:</strong> "Maine apne parents ko gift diya aur woh bahut khush hue. ⭐⭐⭐⭐⭐"</p>
+      </div>
+      <div class="review">
+        <p><strong>Amit Raj:</strong> "Delivery on time thi, aur packing bhi secure thi. ⭐⭐⭐⭐⭐"</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Frame Bazar. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Auto slider
+    let current = 0;
+    const slides = document.querySelectorAll(".discount-slide");
+    setInterval(() => {
+      slides.forEach((slide, index) => {
+        slide.style.display = index === current ? "block" : "none";
+      });
+      current = (current + 1) % slides.length;
+    }, 1000);
+  </script>
+</body>
+
+</html>

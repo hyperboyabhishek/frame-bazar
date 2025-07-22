@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Frame Bazar - Order Now</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .frame-preview {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .frame-preview img {
+      max-width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+    }
+
+    .frame-preview h2 {
+      margin: 10px 0 5px;
+    }
+
+    .frame-preview p {
+      margin: 5px 0;
+      color: #444;
+      font-size: 15px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    input[type="text"],
+    input[type="file"],
+    input[type="number"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      font-size: 15px;
+    }
+
+    .qr-section {
+      text-align: center;
+    }
+
+    .qr-section img {
+      max-width: 220px;
+      margin-bottom: 10px;
+    }
+
+    .cod-unavailable {
+      color: red;
+      font-weight: bold;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(45deg, #ff6b6b, #ff4757);
+      color: white;
+      padding: 12px;
+      border: none;
+      font-size: 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: linear-gradient(45deg, #ff3e3e, #e84141);
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 20px;
+        margin: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- ✅ Frame Preview -->
+    <div class="frame-preview">
+      <img id="product-image" src="" alt="Selected Frame">
+      <h2 id="product-title">Loading...</h2>
+      <p><strong>Size:</strong> <span id="product-size"></span></p>
+      <p><strong>Rating:</strong> ⭐ <span id="product-rating"></span></p>
+      <p><strong>Price:</strong> ₹<span id="product-price"></span></p>
+    </div>
+
+    <!-- ✅ Customer Photo Upload -->
+    <div class="section">
+      <label for="user-photo">Upload Your Photo for Frame:</label>
+      <input type="file" id="user-photo" accept="image/*" required>
+    </div>
+
+    <!-- ✅ Customer Details Form -->
+    <div class="section">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" placeholder="Enter your full name" required>
+
+      <label for="address">Address:</label>
+      <input type="text" id="address" placeholder="Enter full address" required>
+
+      <label for="mobile">Mobile Number:</label>
+      <input type="tel" id="mobile" placeholder="Enter 10-digit mobile number" required>
+
+      <label for="pincode">Pincode:</label>
+      <input type="number" id="pincode" placeholder="Enter pincode" required>
+    </div>
+
+    <!-- ✅ Payment Section -->
+    <div class="qr-section section">
+      <h3>Scan to Pay (UPI)</h3>
+      <img src="image/qr.png" alt="UPI QR Code">
+      <p class="cod-unavailable">Cash on Delivery is not available for custom frames.</p>
+    </div>
+
+    <!-- ✅ Screenshot Upload -->
+    <div class="section">
+      <label for="screenshot">Upload Payment Screenshot:</label>
+      <input type="file" id="screenshot" accept="image/*" required>
+    </div>
+
+    <!-- ✅ Submit Button -->
+    <button class="submit-btn">Confirm Order</button>
+
+  </div>
+
+  <!-- ✅ Auto Load Product Details -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    const image = params.get("image");
+    const size = params.get("size");
+    const price = params.get("price");
+    const rating = params.get("rating");
+
+    document.getElementById("product-image").src = image;
+    document.getElementById("product-title").textContent = `Digi Painting - ${size}`;
+    document.getElementById("product-size").textContent = size;
+    document.getElementById("product-price").textContent = price;
+    document.getElementById("product-rating").textContent = rating;
+  </script>
+
+</body>
+</html>
